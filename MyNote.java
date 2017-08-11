@@ -103,70 +103,7 @@ public class MyNote extends JFrame implements ActionListener {
     }
  
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.close)
-            this.dispose();
- 
-        else if (e.getSource() == this.openFile) {
-            JFileChooser open = new JFileChooser();
-            int option = open.showOpenDialog(this);
-            if (option == JFileChooser.APPROVE_OPTION) {
-                this.textArea.setText("");
-                try {
-                    Scanner scan = new Scanner(new FileReader(open
-                            .getSelectedFile().getPath()));
-                    while (scan.hasNext())
-                        this.textArea.append(scan.nextLine() + "\n");
-                } catch (Exception ex) {
-                    System.out.println(ex.getMessage());
-                }
-            }
-        }
- 
-        else if (e.getSource() == this.saveFile) {
-            JFileChooser save = new JFileChooser();
-            int option = save.showSaveDialog(this);
-            if (option == JFileChooser.APPROVE_OPTION) {
-                try {
-                    BufferedWriter out = new BufferedWriter(new FileWriter(save
-                            .getSelectedFile().getPath()));
-                    out.write(this.textArea.getText());
-                    out.close();
-                } catch (Exception ex) {
-                    System.out.println(ex.getMessage());
-                }
-            }
-        }
- 
-        else if (e.getSource() == this.newFile) {
-            JOptionPane jp = new JOptionPane();
-            Object[] options = { "Save", "Don't Save", "Cancel" };
-            int button = jp.showOptionDialog(null,
-                    "Do you want to save changes to" + getTitle(), "Notepad",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
-                    null, options, options[0]);
-            if (button == 0) {
-                JFileChooser newFile = new JFileChooser();
-                int option = newFile.showSaveDialog(this);
-                if (option == JFileChooser.APPROVE_OPTION) {
-                    try {
-                        BufferedWriter out = new BufferedWriter(new FileWriter(
-                                newFile.getSelectedFile().getPath()));
-                        out.write(this.textArea.getText());
-                        out.close();
-                    } catch (Exception ex) {
-                        System.out.println(ex.getMessage());
-                    }
-                }
-            } else if (button == 1) {
-                textArea.setText(null);
-            } else if (button == 2) {
- 
-            }
-        } else if (e.getSource() == this.about) {
-            JOptionPane jp = new JOptionPane();
-            jp.showMessageDialog(null,
-                    "Created by Vidit");
-        }
+      
     }
  
     public static void main(String args[]) {
