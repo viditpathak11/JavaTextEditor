@@ -97,9 +97,9 @@ public class MyNote extends JFrame implements ActionListener {
         this.paste.addActionListener(this);
         this.edit.add(this.paste);
  
-        this.about.setText("Authors");
+        /*this.about.setText("Authors");
         this.about.addActionListener(this);
-        this.help.add(this.about);
+        this.help.add(this.about);*/
     }
  
     public void actionPerformed(ActionEvent e) {
